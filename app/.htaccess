@@ -1,0 +1,23 @@
+# Mengaktifkan modul rewrite Apache, wajib ada agar aturan di bawah bisa jalan
+RewriteEngine On
+
+# Syarat: jika URL yang diminta BELUM diawali dengan /public/
+RewriteCond %{REQUEST_URI} !^/public/
+
+# Maka arahkan (redirect) semua request ke folder public/
+# Contoh: domain.com/simbar/  -> otomatis dibaca dari domain.com/simbar/public/
+# [L] artinya "Last rule", berhenti di sini, tidak diproses aturan lain lagi
+RewriteRule ^(.*)$ public/$1 [L]
+
+# Menonaktifkan tampilan daftar isi folder (directory listing)
+# Mencegah orang melihat daftar file jika membuka folder tanpa index.php
+Options -Indexes
+
+# Memblokir akses langsung dari browser ke file dengan ekstensi tertentu
+# .env -> biasanya berisi kredensial/konfigurasi rahasia
+# .sql -> file skema/dump database, bisa membocorkan struktur & isi data
+# .log -> file log yang bisa berisi informasi sensitif
+<FilesMatch "\.(env|sql|log)$">
+    # Tolak semua akses ke file yang cocok dengan pola di atas (403 Forbidden)
+    Require all denied
+</FilesMatch>
