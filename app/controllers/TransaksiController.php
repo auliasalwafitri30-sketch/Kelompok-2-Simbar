@@ -30,7 +30,6 @@ class TransaksiController extends Controller
     public function tambah(): void
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            $jenis  = $_POST['jenis'];
             $jumlah = (int) $_POST['jumlah'];
             $barang = $this->barangModel->getById((int) $_POST['barang_id']);
 
@@ -46,8 +45,7 @@ class TransaksiController extends Controller
             }
 
             $this->transaksiModel->create([
-                'barang_id'   => $_POST['barang_id'],
-                'jenis'       => $jenis,
+                'id_barang'   => $_POST['barang_id'],
                 'jumlah'      => $jumlah,
                 'tanggal'     => $_POST['tanggal'],
                 'keterangan'  => $_POST['keterangan'],

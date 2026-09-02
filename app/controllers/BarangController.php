@@ -31,11 +31,10 @@ class BarangController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ok = $this->barangModel->create([
-                'kode_barang'  => $_POST['kode_barang'],
-                'nama_barang'  => $_POST['nama_barang'],
-                'kategori_id'  => $_POST['kategori_id'] ?: null,
-                'satuan'       => $_POST['satuan'],
-                'stok'         => (int) $_POST['stok'],
+                 'nama_barang'  => $_POST['nama_barang'],
+                'kategori'  => $_POST['kategori'] ?: null,
+                'kode_barang'       => (int) $_POST['kode_barang'],    
+                'stok'       => (int) $_POST['stok'],
                 'stok_minimum' => (int) $_POST['stok_minimum'],
                 'harga_beli'   => (float) $_POST['harga_beli'],
                 'harga_jual'   => (float) $_POST['harga_jual'],
@@ -65,8 +64,9 @@ class BarangController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->barangModel->update($id, [
                 'nama_barang'  => $_POST['nama_barang'],
-                'kategori_id'  => $_POST['kategori_id'] ?: null,
-                'satuan'       => $_POST['satuan'],
+                'kategori'  => $_POST['kategori'] ?: null,
+                'kode_barang'       => (int) $_POST['kode_barang'],    
+                'stok'       => (int) $_POST['stok'],
                 'stok_minimum' => (int) $_POST['stok_minimum'],
                 'harga_beli'   => (float) $_POST['harga_beli'],
                 'harga_jual'   => (float) $_POST['harga_jual'],

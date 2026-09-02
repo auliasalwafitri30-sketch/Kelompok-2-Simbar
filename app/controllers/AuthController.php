@@ -36,7 +36,7 @@ class AuthController extends Controller
                 $_SESSION['user'] = [
                     'id'           => $user['id'],
                     'username'     => $user['username'],
-                    'nama_lengkap' => $user['nama_lengkap'],
+                    'password' => $user['password'],
                     'role'         => $user['role'],
                 ];
                 $this->redirect('barang/dashboard');
