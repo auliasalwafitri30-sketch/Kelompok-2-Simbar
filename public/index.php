@@ -11,7 +11,7 @@ session_start();
 
 // ==== Konfigurasi Dasar ====
 define('APP_PATH', dirname(__DIR__) . '/app');
-define('BASE_URL', '/Kelompok-2-Simbar/public'); // URL folder public aplikasi
+define('BASE_URL', rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '/')), '/'));
 define('APP_URL', BASE_URL . '/index.php?url=');
 
 // ==== Autoload / Load Core Files ====
