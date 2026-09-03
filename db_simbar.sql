@@ -50,7 +50,7 @@ CREATE TABLE `barang` (
 
 CREATE TABLE `kategori` (
   `id` int(11) NOT NULL,
-  `nama_kategori` int(11) NOT NULL
+  `nama_kategori` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
@@ -62,6 +62,7 @@ CREATE TABLE `kategori` (
 CREATE TABLE `transaksi` (
   `id_transaksi` int(12) NOT NULL,
   `id_barang` int(11) NOT NULL,
+  `jenis` enum('masuk','keluar') NOT NULL DEFAULT 'masuk',
   `jumlah` int(11) NOT NULL,
   `tanggal` date NOT NULL,
   `keterangan` text NOT NULL
@@ -76,7 +77,7 @@ CREATE TABLE `transaksi` (
 CREATE TABLE `users` (
   `id_user` int(100) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` int(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `role` enum('admin','staff','','') NOT NULL DEFAULT 'admin'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

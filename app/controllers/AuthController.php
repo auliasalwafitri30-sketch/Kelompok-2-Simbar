@@ -1,4 +1,4 @@
-            <?php
+<?php
 /**
  * AuthController.php
  * Mengatur proses login & logout
@@ -36,7 +36,7 @@ class AuthController extends Controller
                 $_SESSION['user'] = [
                     'id'           => $user['id'],
                     'username'     => $user['username'],
-                    'password' => $user['password'],
+                    'nama_lengkap' => $user['nama_lengkap'],
                     'role'         => $user['role'],
                 ];
                 $this->redirect('barang/dashboard');

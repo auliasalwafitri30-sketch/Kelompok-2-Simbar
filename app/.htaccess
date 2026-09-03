@@ -1,5 +1,10 @@
 RewriteEngine On
 
+# Jangan tampilkan template view sebagai halaman mandiri.
+RewriteRule ^views/transaksi(?:/.*)?$ /Kelompok-2-Simbar/transaksi [R=302,L]
+RewriteRule ^views/barang(?:/.*)?$ /Kelompok-2-Simbar/barang [R=302,L]
+RewriteRule ^views(?:/.*)?$ /Kelompok-2-Simbar/public/info.php [R=302,L]
+
 # Arahkan semua akses root ke folder public/ (document root aplikasi)
 RewriteCond %{REQUEST_URI} !^/public/
 RewriteRule ^(.*)$ public/$1 [L]

@@ -1,0 +1,17 @@
+RewriteEngine On
+
+# Semua akses ke template view harus melalui controller aplikasi.
+RewriteRule ^app/views(?:/|$) login [R=302,L]
+
+# Publikasikan aset yang sebenarnya berada di dalam public/.
+RewriteRule ^assets/(.*)$ public/assets/$1 [L]
+
+# Arahkan root dan route aplikasi ke front controller.
+RewriteRule ^$ public/index.php [L]
+
+# Jangan teruskan file/folder publik yang sudah ditemukan ke router.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+RewriteRule ^(.+)$ public/index.php?url=$1 [QSA,L]
