@@ -10,7 +10,7 @@ if (!defined('BASE_URL')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Simbar</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/public/assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
 </head>
 <body>
     <div id="loginScreen">
@@ -37,9 +37,6 @@ if (!defined('BASE_URL')) {
     </div>
 </body>
 </html>
-<<<<<<< HEAD
-                </div>
 
-tes
-=======
->>>>>>> 85a4494db33a751a0dc3b91d8f75c74f7953a4f4
+
+
