@@ -34,7 +34,7 @@ if (!defined('BASE_URL')) {
                 <tr>
                     <td><?= htmlspecialchars($b['kode_barang']) ?></td>
                     <td><?= htmlspecialchars($b['nama_barang']) ?></td>
-                    <td><?= htmlspecialchars($b['kategori'] ?? '-') ?></td>
+                    <td><?= htmlspecialchars($b['nama_kategori'] ?? '-') ?></td>
                     <td>
                         <span class="badge <?= $b['stok'] <= $b['stok_minimum'] ? 'badge-danger' : 'badge-success' ?>">
                             <?= (int) $b['stok'] ?>

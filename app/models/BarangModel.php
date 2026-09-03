@@ -19,7 +19,8 @@ class BarangModel
      */
     public function getAll(string $keyword = ''): array
     {
-        $query = 'SELECT * FROM barang WHERE 1=1';
+        $query = 'SELECT b.*, b.kategori AS kategori_id, k.nama_kategori
+              FROM barang b LEFT JOIN kategori k ON k.id = b.kategori WHERE 1=1';
         
         if (!empty($keyword)) {
             $query .= " AND (kode_barang LIKE ? OR nama_barang LIKE ?)";
@@ -44,7 +45,8 @@ class BarangModel
      */
     public function getById(int $id): ?array
     {
-        $query = 'SELECT * FROM barang WHERE id_barang = ?';
+        $query = 'SELECT b.*, b.kategori AS kategori_id, k.nama_kategori
+              FROM barang b LEFT JOIN kategori k ON k.id = b.kategori WHERE b.id_barang = ?';
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(1, $id, PDO::PARAM_INT);
         $stmt->execute();

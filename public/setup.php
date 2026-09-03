@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 define('APP_PATH', dirname(__DIR__) . '/app');
-require_once APP_PATH . '/config/Database.php';
+require_once APP_PATH . '/config/database.php';
 
 $message = '';
 $error = '';

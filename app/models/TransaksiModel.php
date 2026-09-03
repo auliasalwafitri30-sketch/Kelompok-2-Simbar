@@ -57,7 +57,7 @@ class TransaksiModel
                                VALUES (?, ?, ?, ?, ?)';
             $stmt = $this->db->prepare($queryTransaksi);
             
-            $stmt->bindParam(1, $data['barang_id'], PDO::PARAM_INT);
+            $stmt->bindParam(1, $data['id_barang'], PDO::PARAM_INT);
             $stmt->bindParam(2, $data['jenis'], PDO::PARAM_STR);
             $stmt->bindParam(3, $data['jumlah'], PDO::PARAM_INT);
             $stmt->bindParam(4, $data['tanggal'], PDO::PARAM_STR);
@@ -74,7 +74,7 @@ class TransaksiModel
             $queryUpdate = "UPDATE barang SET stok = stok {$operator} ? WHERE id_barang = ?";
             $stmt = $this->db->prepare($queryUpdate);
             $stmt->bindParam(1, $data['jumlah'], PDO::PARAM_INT);
-            $stmt->bindParam(2, $data['barang_id'], PDO::PARAM_INT);
+            $stmt->bindParam(2, $data['id_barang'], PDO::PARAM_INT);
             
             if (!$stmt->execute()) {
                 throw new Exception('Gagal update stok');

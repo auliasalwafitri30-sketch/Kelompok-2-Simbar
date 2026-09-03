@@ -1,4 +1,4 @@
-            <?php
+<?php
 /**
  * AuthController.php
  * Mengatur proses login & logout
