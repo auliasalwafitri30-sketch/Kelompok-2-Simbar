@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Simbar' ?> - Simbar</title>
-    <link rel="stylesheet" href="<?= BASE_URL ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASE_URL ?>/public/assets/css/style.css">
 </head>
 <body>
+    <?php $currentUrl = trim($_GET['url'] ?? '', '/'); ?>
     <div class="wrapper">
         <aside class="sidebar">
             <div class="sidebar-brand">
@@ -14,15 +15,15 @@
                 <span>SIMBAR</span>
             </div>
             <nav class="sidebar-nav">
-                <a href="<?= BASE_URL ?>/barang/dashboard">🏠 Dashboard</a>
-                <a href="<?= BASE_URL ?>/barang">📋 Data Barang</a>
-                <a href="<?= BASE_URL ?>/transaksi">🔄 Transaksi</a>
-                <a href="<?= BASE_URL ?>/transaksi/tambah">➕ Input Transaksi</a>
+                <a class="<?= $currentUrl === 'barang/dashboard' ? 'active' : '' ?>" href="<?= APP_URL ?>barang/dashboard">🏠 Dashboard</a>
+                <a class="<?= $currentUrl === 'barang' || strpos($currentUrl, 'barang/edit') === 0 ? 'active' : '' ?>" href="<?= APP_URL ?>barang">📋 Data Barang</a>
+                <a class="<?= strpos($currentUrl, 'barang/tambah') === 0 ? 'active' : '' ?>" href="<?= APP_URL ?>barang/tambah">➕ Tambah Barang</a>
+                <a class="<?= strpos($currentUrl, 'transaksi') === 0 ? 'active' : '' ?>" href="<?= APP_URL ?>transaksi">🔄 Transaksi</a>
             </nav>
             <?php if (!empty($_SESSION['user'])): ?>
             <div class="sidebar-user">
-                <span class="uname"><?= htmlspecialchars($_SESSION['user']['nama_lengkap']) ?></span>
-                <a class="logout-link" href="<?= BASE_URL ?>/logout">🚪 Keluar</a>
+                <span class="uname"><?= htmlspecialchars($_SESSION['user']['nama_lengkap'] ?? $_SESSION['user']['username'] ?? 'Pengguna') ?></span>
+                <a class="logout-link" href="<?= APP_URL ?>logout">🚪 Keluar</a>
             </div>
             <?php endif; ?>
         </aside>

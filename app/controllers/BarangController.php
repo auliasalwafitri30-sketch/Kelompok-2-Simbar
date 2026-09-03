@@ -31,9 +31,9 @@ class BarangController extends Controller
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $ok = $this->barangModel->create([
-                 'nama_barang'  => $_POST['nama_barang'],
-                'kategori'  => $_POST['kategori'] ?: null,
-                'kode_barang'       => (int) $_POST['kode_barang'],    
+                 'nama_barang'  => trim($_POST['nama_barang'] ?? ''),
+                'kategori_id'  => !empty($_POST['kategori_id']) ? (int) $_POST['kategori_id'] : 0,
+                 'kode_barang'  => trim($_POST['kode_barang'] ?? ''),
                 'stok'       => (int) $_POST['stok'],
                 'stok_minimum' => (int) $_POST['stok_minimum'],
                 'harga_beli'   => (float) $_POST['harga_beli'],
