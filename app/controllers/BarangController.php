@@ -64,8 +64,7 @@ class BarangController extends Controller
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $this->barangModel->update($id, [
                 'nama_barang'  => $_POST['nama_barang'],
-                'kategori'  => $_POST['kategori'] ?: null,
-                'kode_barang'       => (int) $_POST['kode_barang'],    
+                'kategori_id'  => !empty($_POST['kategori_id']) ? (int) $_POST['kategori_id'] : 0,
                 'stok'       => (int) $_POST['stok'],
                 'stok_minimum' => (int) $_POST['stok_minimum'],
                 'harga_beli'   => (float) $_POST['harga_beli'],
