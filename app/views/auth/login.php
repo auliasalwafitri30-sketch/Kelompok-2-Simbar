@@ -34,7 +34,6 @@ if (!defined('BASE_URL')) {
                 <button type="submit" class="login-btn">Masuk</button>
             </form>
         </div>
-
+    </div>
 </body>
 </html>
-                </div>
