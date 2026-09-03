@@ -21,6 +21,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['setup'])) {
 
         // Hash password membutuhkan kolom teks, bukan INT.
         $db->exec('ALTER TABLE users MODIFY password VARCHAR(255) NOT NULL');
+        $db->exec('ALTER TABLE kategori MODIFY nama_kategori VARCHAR(100) NOT NULL');
+
+        $kategoriCount = (int) $db->query('SELECT COUNT(*) FROM kategori')->fetchColumn();
+        if ($kategoriCount === 0) {
+            $stmt = $db->prepare('INSERT INTO kategori (nama_kategori) VALUES (?), (?), (?), (?)');
+            $stmt->execute([
+                'Alat Tulis Kantor',
+                'Elektronik',
+                'Peralatan Kebersihan',
+                'Furniture',
+            ]);
+        }
 
         $jenisColumn = $db->query("SHOW COLUMNS FROM transaksi LIKE 'jenis'")->fetch();
         if (!$jenisColumn) {
