@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['setup'])) {
         if ($kategoriCount === 0) {
             $stmt = $db->prepare('INSERT INTO kategori (nama_kategori) VALUES (?), (?), (?), (?)');
             $stmt->execute([
-                'Alat Tulis Kantor',
+                'Alat Tulis',
                 'Elektronik',
                 'Peralatan Kebersihan',
                 'Furniture',
