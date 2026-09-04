@@ -1,6 +1,6 @@
 <?php
 if (!defined('BASE_URL')) {
-    header('Location: /APP-SIMBAR/Kelompok-2-Simbar/public/index.php?url=login');
+    header('Location: /Kelompok-2-Simbar/public/index.php?url=login');
     exit;
 }
 ?>
