@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?? 'Simbar' ?> - Simbar</title>
     <?php $baseUrl = BASE_URL !== '' ? rtrim(BASE_URL, '/') : rtrim(str_replace('\\', '/', dirname($_SERVER['SCRIPT_NAME'] ?? '')), '/'); ?>
-    <link rel="stylesheet" href="<?= htmlspecialchars($baseUrl) ?>/assets/css/style.css">
+    <link rel="stylesheet" href="<?= htmlspecialchars($baseUrl) ?>/assets/css/style.css?v=2">
 </head>
 <body>
     <?php $currentUrl = trim($_GET['url'] ?? '', '/'); ?>

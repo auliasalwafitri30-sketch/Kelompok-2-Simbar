@@ -139,7 +139,7 @@ ALTER TABLE `users`
 
 -- Default account for the initial login.
 INSERT INTO `users` (`username`, `password`, `role`)
-VALUES ('admin', '$2y$10$4jicieFU4aU4HnpUGMoSFOUC3ZPxK6Rr/SO8zqQs.DRYRg1ngcOmC', 'admin');
+VALUES ('admin', '$2y$10$CpXsNdC8.lP3jWiE5dlWfuQ6lXZCe/UezFw30YLdpVMY3IjXwaT02', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
