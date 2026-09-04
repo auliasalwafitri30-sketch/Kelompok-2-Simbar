@@ -16,7 +16,7 @@ if (!defined('BASE_URL')) {
     <div id="loginScreen">
         <div class="login-card">
             <div class="login-brand">📦 SIMBAR</div>
-            <div class="login-sub">Sistem Informasi Manajemen Barang</div>
+            <div class="login-sub">Sistem Informasi Manajemen Barang Sekolah</div>
 
             <?php if (!empty($error)): ?>
                 <div class="alert alert-danger"><?= htmlspecialchars($error) ?></div>

@@ -61,7 +61,7 @@
     </div>
 
     <div class="form-group">
-        <label>Lokasi Rak</label>
+        <label>Lokasi</label>
         <input type="text" name="lokasi_rak" value="<?= htmlspecialchars($barang['lokasi_rak'] ?? '') ?>">
     </div>
 

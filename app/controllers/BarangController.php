@@ -36,8 +36,8 @@ class BarangController extends Controller
                  'kode_barang'  => trim($_POST['kode_barang'] ?? ''),
                 'stok'       => (int) $_POST['stok'],
                 'stok_minimum' => (int) $_POST['stok_minimum'],
-                'harga_beli'   => (float) $_POST['harga_beli'],
-                'harga_jual'   => (float) $_POST['harga_jual'],
+                'harga_beli'   => (int) $_POST['harga_beli'],
+                'harga_jual'   => (int) $_POST['harga_jual'],
                 'lokasi_rak'   => $_POST['lokasi_rak'],
                 'keterangan'   => $_POST['keterangan'],
             ]);
@@ -67,8 +67,8 @@ class BarangController extends Controller
                 'kategori_id'  => !empty($_POST['kategori_id']) ? (int) $_POST['kategori_id'] : 0,
                 'stok'       => (int) $_POST['stok'],
                 'stok_minimum' => (int) $_POST['stok_minimum'],
-                'harga_beli'   => (float) $_POST['harga_beli'],
-                'harga_jual'   => (float) $_POST['harga_jual'],
+                'harga_beli'   => (int) $_POST['harga_beli'],
+                'harga_jual'   => (int) $_POST['harga_jual'],
                 'lokasi_rak'   => $_POST['lokasi_rak'],
                 'keterangan'   => $_POST['keterangan'],
             ]);
